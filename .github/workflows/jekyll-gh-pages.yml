@@ -6,13 +6,12 @@ name: Convert And Deploy Mermaid Diagrams In Markdown To GitHub Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
-  id-token: write 
-
+  id-token: write
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -39,9 +38,9 @@ jobs:
             npx -p @mermaid-js/mermaid-cli mmdc --input $file --output $file
           done
           echo Mermaid Diagrams Generated!
-          
+
       - name: Setup Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v3
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
@@ -49,7 +48,7 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-# Deployment job
+  # Deployment job
   deploy:
     environment:
       name: github-pages
@@ -59,5 +58,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1    
-
+        uses: actions/deploy-pages@v1

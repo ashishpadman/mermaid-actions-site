@@ -1,6 +1,6 @@
 ```mermaid
 ---
-title: Streamy Entity Relationship Diagram
+title: Streamy ER Diagram as MarkDown
 ---
 erDiagram
     TITLE {
